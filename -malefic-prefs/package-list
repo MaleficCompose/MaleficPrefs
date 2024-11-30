@@ -1,5 +1,30 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
+$dokka.location:xyz.malefic.prefs.nullable////PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/index.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableByteArrayPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-byte-array-preference/index.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableByteArrayPreference/NullableByteArrayPreference/#kotlin.String#kotlin.ByteArray?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-byte-array-preference/-nullable-byte-array-preference.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableByteArrayPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-byte-array-preference/get-value.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableByteArrayPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.ByteArray?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-byte-array-preference/set-value.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableDoublePreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-double-preference/index.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableDoublePreference/NullableDoublePreference/#kotlin.String#kotlin.Double?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-double-preference/-nullable-double-preference.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableDoublePreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-double-preference/get-value.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableDoublePreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.Double?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-double-preference/set-value.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableFloatPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-float-preference/index.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableFloatPreference/NullableFloatPreference/#kotlin.String#kotlin.Float?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-float-preference/-nullable-float-preference.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableFloatPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-float-preference/get-value.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableFloatPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.Float?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-float-preference/set-value.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableIntPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-int-preference/index.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableIntPreference/NullableIntPreference/#kotlin.String#kotlin.Int?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-int-preference/-nullable-int-preference.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableIntPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-int-preference/get-value.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableIntPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.Int?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-int-preference/set-value.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableLongPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-long-preference/index.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableLongPreference/NullableLongPreference/#kotlin.String#kotlin.Long?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-long-preference/-nullable-long-preference.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableLongPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-long-preference/get-value.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableLongPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.Long?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-long-preference/set-value.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableStringPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-string-preference/index.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableStringPreference/NullableStringPreference/#kotlin.String#kotlin.String?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-string-preference/-nullable-string-preference.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableStringPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-string-preference/get-value.html
+$dokka.location:xyz.malefic.prefs.nullable/NullableStringPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.String?/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs.nullable/-nullable-string-preference/set-value.html
 $dokka.location:xyz.malefic.prefs////PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/index.html
 $dokka.location:xyz.malefic.prefs/BooleanPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-boolean-preference/index.html
 $dokka.location:xyz.malefic.prefs/BooleanPreference/BooleanPreference/#kotlin.String#kotlin.Boolean/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-boolean-preference/-boolean-preference.html
@@ -41,5 +66,6 @@ $dokka.location:xyz.malefic.serialize/SerializationUtil///PointingToDeclaration/
 $dokka.location:xyz.malefic.serialize/SerializationUtil/deserialize/#kotlin.ByteArray#java.lang.Class[TypeParam(bounds=[java.io.Serializable])]/PointingToDeclaration/-malefic-prefs/xyz.malefic.serialize/-serialization-util/deserialize.html
 $dokka.location:xyz.malefic.serialize/SerializationUtil/serialize/#kotlin.Any?/PointingToDeclaration/-malefic-prefs/xyz.malefic.serialize/-serialization-util/serialize.html
 xyz.malefic.prefs
+xyz.malefic.prefs.nullable
 xyz.malefic.serialize
 
