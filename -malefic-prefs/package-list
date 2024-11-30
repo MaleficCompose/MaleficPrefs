@@ -1,0 +1,45 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:xyz.malefic.prefs////PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/index.html
+$dokka.location:xyz.malefic.prefs/BooleanPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-boolean-preference/index.html
+$dokka.location:xyz.malefic.prefs/BooleanPreference/BooleanPreference/#kotlin.String#kotlin.Boolean/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-boolean-preference/-boolean-preference.html
+$dokka.location:xyz.malefic.prefs/BooleanPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-boolean-preference/get-value.html
+$dokka.location:xyz.malefic.prefs/BooleanPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.Boolean/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-boolean-preference/set-value.html
+$dokka.location:xyz.malefic.prefs/ByteArrayPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-byte-array-preference/index.html
+$dokka.location:xyz.malefic.prefs/ByteArrayPreference/ByteArrayPreference/#kotlin.String#kotlin.ByteArray/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-byte-array-preference/-byte-array-preference.html
+$dokka.location:xyz.malefic.prefs/ByteArrayPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-byte-array-preference/get-value.html
+$dokka.location:xyz.malefic.prefs/ByteArrayPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.ByteArray/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-byte-array-preference/set-value.html
+$dokka.location:xyz.malefic.prefs/DoublePreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-double-preference/index.html
+$dokka.location:xyz.malefic.prefs/DoublePreference/DoublePreference/#kotlin.String#kotlin.Double/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-double-preference/-double-preference.html
+$dokka.location:xyz.malefic.prefs/DoublePreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-double-preference/get-value.html
+$dokka.location:xyz.malefic.prefs/DoublePreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.Double/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-double-preference/set-value.html
+$dokka.location:xyz.malefic.prefs/FloatPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-float-preference/index.html
+$dokka.location:xyz.malefic.prefs/FloatPreference/FloatPreference/#kotlin.String#kotlin.Float/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-float-preference/-float-preference.html
+$dokka.location:xyz.malefic.prefs/FloatPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-float-preference/get-value.html
+$dokka.location:xyz.malefic.prefs/FloatPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.Float/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-float-preference/set-value.html
+$dokka.location:xyz.malefic.prefs/IntPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-int-preference/index.html
+$dokka.location:xyz.malefic.prefs/IntPreference/IntPreference/#kotlin.String#kotlin.Int/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-int-preference/-int-preference.html
+$dokka.location:xyz.malefic.prefs/IntPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-int-preference/get-value.html
+$dokka.location:xyz.malefic.prefs/IntPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.Int/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-int-preference/set-value.html
+$dokka.location:xyz.malefic.prefs/LongPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-long-preference/index.html
+$dokka.location:xyz.malefic.prefs/LongPreference/LongPreference/#kotlin.String#kotlin.Long/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-long-preference/-long-preference.html
+$dokka.location:xyz.malefic.prefs/LongPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-long-preference/get-value.html
+$dokka.location:xyz.malefic.prefs/LongPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.Long/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-long-preference/set-value.html
+$dokka.location:xyz.malefic.prefs/PreferenceDelegate///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-preference-delegate/index.html
+$dokka.location:xyz.malefic.prefs/PreferenceDelegate/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-preference-delegate/get-value.html
+$dokka.location:xyz.malefic.prefs/PreferenceDelegate/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-preference-delegate/set-value.html
+$dokka.location:xyz.malefic.prefs/SerializablePreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-serializable-preference/index.html
+$dokka.location:xyz.malefic.prefs/SerializablePreference/SerializablePreference/#kotlin.String#TypeParam(bounds=[java.io.Serializable])/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-serializable-preference/-serializable-preference.html
+$dokka.location:xyz.malefic.prefs/SerializablePreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-serializable-preference/get-value.html
+$dokka.location:xyz.malefic.prefs/SerializablePreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#TypeParam(bounds=[java.io.Serializable])/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-serializable-preference/set-value.html
+$dokka.location:xyz.malefic.prefs/StringPreference///PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-string-preference/index.html
+$dokka.location:xyz.malefic.prefs/StringPreference/StringPreference/#kotlin.String#kotlin.String/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-string-preference/-string-preference.html
+$dokka.location:xyz.malefic.prefs/StringPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-string-preference/get-value.html
+$dokka.location:xyz.malefic.prefs/StringPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.String/PointingToDeclaration/-malefic-prefs/xyz.malefic.prefs/-string-preference/set-value.html
+$dokka.location:xyz.malefic.serialize////PointingToDeclaration/-malefic-prefs/xyz.malefic.serialize/index.html
+$dokka.location:xyz.malefic.serialize/SerializationUtil///PointingToDeclaration/-malefic-prefs/xyz.malefic.serialize/-serialization-util/index.html
+$dokka.location:xyz.malefic.serialize/SerializationUtil/deserialize/#kotlin.ByteArray#java.lang.Class[TypeParam(bounds=[java.io.Serializable])]/PointingToDeclaration/-malefic-prefs/xyz.malefic.serialize/-serialization-util/deserialize.html
+$dokka.location:xyz.malefic.serialize/SerializationUtil/serialize/#kotlin.Any?/PointingToDeclaration/-malefic-prefs/xyz.malefic.serialize/-serialization-util/serialize.html
+xyz.malefic.prefs
+xyz.malefic.serialize
+
