@@ -1,6 +1,6 @@
 import cn.lalaki.pub.BaseCentralPortalPlusExtension.PublishingType
 
-val v = "1.0.0"
+val v = "1.1.0"
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
