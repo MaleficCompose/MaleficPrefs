@@ -1,4 +1,4 @@
-package xyz.malefic.prefs
+package xyz.malefic.prefs.delegate
 
 import kotlin.reflect.KProperty
 

@@ -1,8 +1,8 @@
-package xyz.malefic.prefs
+package xyz.malefic.prefs.delegate
 
 import java.io.Serializable
 import kotlin.reflect.KProperty
-import xyz.malefic.prefs.PrefsCommon.Companion.prefs
+import xyz.malefic.prefs.Common.Companion.prefs
 import xyz.malefic.serialize.SerializationUtil.deserialize
 import xyz.malefic.serialize.SerializationUtil.serialize
 

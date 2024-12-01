@@ -1,8 +1,8 @@
-package xyz.malefic.prefs.nullable
+package xyz.malefic.prefs.delegate.nullable
 
 import kotlin.reflect.KProperty
-import xyz.malefic.prefs.PreferenceDelegate
-import xyz.malefic.prefs.PrefsCommon.Companion.prefs
+import xyz.malefic.prefs.Common.Companion.prefs
+import xyz.malefic.prefs.delegate.PreferenceDelegate
 
 /**
  * A class that represents a nullable int preference.

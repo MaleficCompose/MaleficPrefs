@@ -1,6 +1,6 @@
 import cn.lalaki.pub.BaseCentralPortalPlusExtension.PublishingType
 
-val v = "1.1.0"
+val v = "1.2.0"
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
@@ -25,9 +25,8 @@ repositories {
 
 dependencies {
   implementation(compose.desktop.common)
-  implementation(compose.animation)
-  implementation(compose.foundation)
   testImplementation(kotlin("test"))
+  testImplementation(libs.mockito)
 }
 
 spotless {

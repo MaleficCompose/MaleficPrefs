@@ -4,14 +4,14 @@ import java.util.prefs.Preferences
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import xyz.malefic.prefs.nullable.*
+import xyz.malefic.prefs.delegate.nullable.*
 
 class NullablePreferenceTests {
   private lateinit var prefs: Preferences
 
   @BeforeEach
   fun setup() {
-    prefs = PrefsCommon.prefs
+    prefs = Common.prefs
     prefs.clear()
   }
 
@@ -33,6 +33,26 @@ class NullablePreferenceTests {
     var testObject by NullableIntPreference("intKey", defaultValue = 42)
     testObject = null
     assertEquals(42, testObject, "Expected value to be default value")
+  }
+
+  @Test
+  fun `NullableDoublePreference should return default value if not set`() {
+    val testObject by NullableDoublePreference("doubleKey", defaultValue = 42.0)
+    assertEquals(42.0, testObject, "Expected default value to be returned when not set")
+  }
+
+  @Test
+  fun `NullableDoublePreference should store and retrieve value`() {
+    var testObject by NullableDoublePreference("doubleKey", defaultValue = 0.0)
+    testObject = 100.0
+    assertEquals(100.0, testObject, "Expected value to be stored and retrieved correctly")
+  }
+
+  @Test
+  fun `NullableDoublePreference should handle null value`() {
+    var testObject by NullableDoublePreference("doubleKey", defaultValue = 42.0)
+    testObject = null
+    assertEquals(42.0, testObject, "Expected value to be default value")
   }
 
   @Test

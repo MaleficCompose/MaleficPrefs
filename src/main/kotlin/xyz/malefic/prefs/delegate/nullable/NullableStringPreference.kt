@@ -1,8 +1,8 @@
-package xyz.malefic.prefs.nullable
+package xyz.malefic.prefs.delegate.nullable
 
 import kotlin.reflect.KProperty
-import xyz.malefic.prefs.PreferenceDelegate
-import xyz.malefic.prefs.PrefsCommon.Companion.prefs
+import xyz.malefic.prefs.Common.Companion.prefs
+import xyz.malefic.prefs.delegate.PreferenceDelegate
 
 /**
  * A class that represents a nullable string preference.
@@ -20,7 +20,7 @@ class NullableStringPreference(private val key: String, private val defaultValue
    * @return The nullable string value of the preference.
    */
   override operator fun getValue(thisRef: Any?, property: KProperty<*>): String? {
-    return prefs.get(key, defaultValue)
+    return prefs[key, defaultValue]
   }
 
   /**

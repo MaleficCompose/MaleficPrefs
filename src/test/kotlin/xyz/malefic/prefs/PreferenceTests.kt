@@ -5,13 +5,14 @@ import java.util.prefs.Preferences
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import xyz.malefic.prefs.delegate.*
 
 class PreferenceTests {
   private lateinit var prefs: Preferences
 
   @BeforeEach
   fun setup() {
-    prefs = PrefsCommon.prefs
+    prefs = Common.prefs
     prefs.clear()
   }
 
