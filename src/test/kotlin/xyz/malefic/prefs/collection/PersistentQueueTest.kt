@@ -1,39 +1,53 @@
 package xyz.malefic.prefs.collection
 
-import java.util.prefs.Preferences
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito.*
-import xyz.malefic.prefs.Common
+import xyz.malefic.prefs.Common.Companion.prefs
 
 class PersistentQueueTest {
-  private lateinit var prefs: Preferences
-  private lateinit var queue: PersistentQueue<String>
-
   @BeforeEach
   fun setUp() {
-    prefs = mock(Preferences::class.java)
-    Common.prefs = prefs
-    queue = PersistentQueue("testQueue")
+    prefs.clear()
   }
 
   @Test
-  fun testOffer() {
+  fun `should load from preferences`() {
+    val queue = PersistentQueue<String>("testKey")
     queue.offer("item1")
-    verify(prefs).putByteArray(eq("testQueue"), any())
+    queue.offer("item2")
+
+    val newQueue = PersistentQueue<String>("testKey")
+    assertEquals(queue, newQueue, "Expected queue to be loaded from preferences")
   }
 
   @Test
-  fun testPoll() {
+  fun `should save to preferences on offer`() {
+    val queue = PersistentQueue<String>("testKey")
+    queue.offer("item1")
+
+    val newQueue = PersistentQueue<String>("testKey")
+    assertTrue(newQueue.contains("item1"), "Expected item to be saved to preferences")
+  }
+
+  @Test
+  fun `should save to preferences on poll`() {
+    val queue = PersistentQueue<String>("testKey")
     queue.offer("item1")
     queue.poll()
-    verify(prefs, times(2)).putByteArray(eq("testQueue"), any())
+
+    val newQueue = PersistentQueue<String>("testKey")
+    assertTrue(!newQueue.contains("item1"), "Expected item to be removed from preferences")
   }
 
   @Test
-  fun testClear() {
+  fun `should reset preferences`() {
+    val queue = PersistentQueue<String>("testKey")
     queue.offer("item1")
-    queue.clear()
-    verify(prefs, times(2)).remove("testQueue")
+    queue.reset()
+
+    val newQueue = PersistentQueue<String>("testKey")
+    assertTrue(newQueue.isEmpty(), "Expected queue to be reset in preferences")
   }
 }

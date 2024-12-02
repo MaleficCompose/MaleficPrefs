@@ -56,9 +56,17 @@ class PersistentQueue<T : Serializable>(private val key: String) : LinkedList<T>
     return result
   }
 
-  /** Removes all of the elements from this queue. */
+  /**
+   * Only kept for compatibility with the [Queue] class and automatic cleanup. Use the reset
+   * function if you want to clear the preferences.
+   */
   override fun clear() {
     super.clear()
+  }
+
+  /** Removes all the elements from this queue as well as from Preferences. */
+  fun reset() {
+    clear()
     prefs.remove(key)
   }
 }

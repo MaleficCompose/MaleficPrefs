@@ -1,39 +1,53 @@
 package xyz.malefic.prefs.collection
 
-import java.util.prefs.Preferences
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito.*
-import xyz.malefic.prefs.Common
+import xyz.malefic.prefs.Common.Companion.prefs
 
 class PersistentArrayListTest {
-  private lateinit var prefs: Preferences
-  private lateinit var list: PersistentArrayList<String>
-
   @BeforeEach
   fun setUp() {
-    prefs = mock(Preferences::class.java)
-    Common.prefs = prefs
-    list = PersistentArrayList("testList")
+    prefs.clear()
   }
 
   @Test
-  fun testAdd() {
+  fun `should load from preferences`() {
+    val list = PersistentArrayList<String>("testKey")
     list.add("item1")
-    verify(prefs).putByteArray(eq("testList"), any())
+    list.add("item2")
+
+    val newList = PersistentArrayList<String>("testKey")
+    assertEquals(list, newList, "Expected list to be loaded from preferences")
   }
 
   @Test
-  fun testRemove() {
+  fun `should save to preferences on add`() {
+    val list = PersistentArrayList<String>("testKey")
+    list.add("item1")
+
+    val newList = PersistentArrayList<String>("testKey")
+    assertTrue(newList.contains("item1"), "Expected item to be saved to preferences")
+  }
+
+  @Test
+  fun `should save to preferences on remove`() {
+    val list = PersistentArrayList<String>("testKey")
     list.add("item1")
     list.remove("item1")
-    verify(prefs, times(2)).putByteArray(eq("testList"), any())
+
+    val newList = PersistentArrayList<String>("testKey")
+    assertTrue(!newList.contains("item1"), "Expected item to be removed from preferences")
   }
 
   @Test
-  fun testClear() {
+  fun `should reset preferences`() {
+    val list = PersistentArrayList<String>("testKey")
     list.add("item1")
-    list.clear()
-    verify(prefs, times(2)).remove("testList")
+    list.reset()
+
+    val newList = PersistentArrayList<String>("testKey")
+    assertTrue(newList.isEmpty(), "Expected list to be reset in preferences")
   }
 }

@@ -1,39 +1,53 @@
 package xyz.malefic.prefs.collection
 
-import java.util.prefs.Preferences
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito.*
-import xyz.malefic.prefs.Common
+import xyz.malefic.prefs.Common.Companion.prefs
 
 class PersistentHashSetTest {
-  private lateinit var prefs: Preferences
-  private lateinit var set: PersistentHashSet<String>
-
   @BeforeEach
   fun setUp() {
-    prefs = mock(Preferences::class.java)
-    Common.prefs = prefs
-    set = PersistentHashSet("testSet")
+    prefs.clear()
   }
 
   @Test
-  fun testAdd() {
+  fun `should load from preferences`() {
+    val set = PersistentHashSet<String>("testKey")
     set.add("item1")
-    verify(prefs).putByteArray(eq("testSet"), any())
+    set.add("item2")
+
+    val newSet = PersistentHashSet<String>("testKey")
+    assertEquals(set, newSet, "Expected set to be loaded from preferences")
   }
 
   @Test
-  fun testRemove() {
+  fun `should save to preferences on add`() {
+    val set = PersistentHashSet<String>("testKey")
+    set.add("item1")
+
+    val newSet = PersistentHashSet<String>("testKey")
+    assertTrue(newSet.contains("item1"), "Expected item to be saved to preferences")
+  }
+
+  @Test
+  fun `should save to preferences on remove`() {
+    val set = PersistentHashSet<String>("testKey")
     set.add("item1")
     set.remove("item1")
-    verify(prefs, times(2)).putByteArray(eq("testSet"), any())
+
+    val newSet = PersistentHashSet<String>("testKey")
+    assertTrue(!newSet.contains("item1"), "Expected item to be removed from preferences")
   }
 
   @Test
-  fun testClear() {
+  fun `should reset preferences`() {
+    val set = PersistentHashSet<String>("testKey")
     set.add("item1")
-    set.clear()
-    verify(prefs, times(2)).remove("testSet")
+    set.reset()
+
+    val newSet = PersistentHashSet<String>("testKey")
+    assertTrue(newSet.isEmpty(), "Expected set to be reset in preferences")
   }
 }

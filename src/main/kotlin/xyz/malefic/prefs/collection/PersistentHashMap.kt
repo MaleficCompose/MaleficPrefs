@@ -10,42 +10,31 @@ import xyz.malefic.serialize.SerializationUtil.serialize
  *
  * @param K the type of keys maintained by this map, which must be serializable.
  * @param V the type of mapped values, which must be serializable.
- * @property keyPrefix the prefix used to store the map entries in preferences.
+ * @property key the prefix used to store the map entries in preferences.
  */
-class PersistentHashMap<K : Serializable, V : Serializable>(private val keyPrefix: String) :
+class PersistentHashMap<K : Serializable, V : Serializable>(private val key: String) :
   HashMap<K, V>() {
   init {
     loadFromPreferences()
   }
 
   /** Loads the map from preferences. */
+  @Suppress("UNCHECKED_CAST")
   private fun loadFromPreferences() {
     clear()
-    val keys = getStringSet("$keyPrefix-keys").orEmpty()
-    for (key in keys) {
-      val serializedValue = prefs.getByteArray("$keyPrefix-$key", null)
-      if (serializedValue != null) {
-        val deserializedValue = deserialize(serializedValue, serializedValue::class.java)
-        if (deserializedValue != null) {
-          @Suppress("UNCHECKED_CAST") put(key as K, deserializedValue as V)
-        }
+    val serializedMap = prefs.getByteArray(key, null)
+    if (serializedMap != null) {
+      val deserializedMap = deserialize(serializedMap, HashMap::class.java) as? HashMap<K, V>
+      if (deserializedMap != null) {
+        putAll(deserializedMap)
       }
     }
   }
 
   /** Saves the map to preferences. */
   private fun saveToPreferences() {
-    // Remove old keys
-    val oldKeys = getStringSet("$keyPrefix-keys").orEmpty()
-    for (key in oldKeys) {
-      prefs.remove("$keyPrefix-$key")
-    }
-
-    // Save new keys and their serialized values
-    putStringSet("$keyPrefix-keys", keys.map { it.toString() }.toSet())
-    for ((key, value) in this) {
-      prefs.putByteArray("$keyPrefix-$key", serialize(value))
-    }
+    val serializedMap = serialize(HashMap(this))
+    prefs.putByteArray(key, serializedMap)
   }
 
   /**
@@ -73,41 +62,27 @@ class PersistentHashMap<K : Serializable, V : Serializable>(private val keyPrefi
     return result
   }
 
-  /** Removes all of the mappings from this map. */
+  /**
+   * Only kept for compatibility with the [HashMap] class and automatic cleanup. Use the reset
+   * function if you want to clear the preferences.
+   */
   override fun clear() {
     super.clear()
-    prefs.remove("$keyPrefix-keys")
+  }
+
+  /** Removes all the mappings from this map as well as from Preferences. */
+  fun reset() {
+    clear()
+    prefs.remove(key)
   }
 
   /**
-   * Copies all of the mappings from the specified map to this map.
+   * Copies all the mappings from the specified map to this map.
    *
    * @param from mappings to be stored in this map.
    */
   override fun putAll(from: Map<out K, V>) {
     super.putAll(from)
     saveToPreferences()
-  }
-
-  /**
-   * Retrieves a set of strings from preferences.
-   *
-   * @param key the key used to retrieve the set.
-   * @return the set of strings, or null if not found.
-   */
-  private fun getStringSet(key: String): Set<String>? {
-    val csv = prefs[key, null] ?: return null
-    return csv.split(",").filter { it.isNotEmpty() }.toSet()
-  }
-
-  /**
-   * Stores a set of strings in preferences.
-   *
-   * @param key the key used to store the set.
-   * @param set the set of strings to be stored.
-   */
-  private fun putStringSet(key: String, set: Set<String>) {
-    val csv = set.joinToString(",")
-    prefs.put(key, csv)
   }
 }

@@ -55,9 +55,17 @@ class PersistentHashSet<T : Serializable>(private val key: String) : HashSet<T>(
     return result
   }
 
-  /** Removes all elements from this set. */
+  /**
+   * Only kept for compatibility with the [HashSet] class and automatic cleanup. Use the reset
+   * function if you want to clear the preferences.
+   */
   override fun clear() {
     super.clear()
+  }
+
+  /** Removes all the elemenst from this set as well as from Preferences. */
+  fun reset() {
+    clear()
     prefs.remove(key)
   }
 }

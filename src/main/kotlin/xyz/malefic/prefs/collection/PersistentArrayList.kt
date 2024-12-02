@@ -55,9 +55,17 @@ class PersistentArrayList<T : Serializable>(private val key: String) : ArrayList
     return result
   }
 
-  /** Removes all elements from this list. */
+  /**
+   * Only kept for compatibility with the [ArrayList] class and automatic cleanup. Use the reset
+   * function if you want to clear the preferences.
+   */
   override fun clear() {
     super.clear()
+  }
+
+  /** Removes all the elements from this list as well as from Preferences. */
+  fun reset() {
+    clear()
     prefs.remove(key)
   }
 }
