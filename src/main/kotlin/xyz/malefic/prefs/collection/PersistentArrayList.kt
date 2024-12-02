@@ -6,10 +6,10 @@ import xyz.malefic.serialize.SerializationUtil.deserialize
 import xyz.malefic.serialize.SerializationUtil.serialize
 
 /**
- * A persistent ArrayList that saves its state to preferences.
+ * A persistent implementation of an ArrayList that saves its state to preferences.
  *
- * @param T the type of elements held in this list, which must be serializable.
- * @property key the key used to store the list in preferences.
+ * @param T the type of elements in this list, which must be Serializable
+ * @param key the key used to store the list in preferences
  */
 class PersistentArrayList<T : Serializable>(private val key: String) : ArrayList<T>() {
   init {
@@ -32,10 +32,10 @@ class PersistentArrayList<T : Serializable>(private val key: String) : ArrayList
   }
 
   /**
-   * Adds the specified element to this list.
+   * Adds an element to the list and saves the list to preferences.
    *
-   * @param element the element to be added.
-   * @return `true` if the element was added successfully.
+   * @param element the element to add
+   * @return true if the list changed as a result of the call
    */
   override fun add(element: T): Boolean {
     val result = super.add(element)
@@ -44,10 +44,62 @@ class PersistentArrayList<T : Serializable>(private val key: String) : ArrayList
   }
 
   /**
-   * Removes the specified element from this list.
+   * Adds an element at the specified position in the list and saves the list to preferences.
    *
-   * @param element the element to be removed.
-   * @return `true` if the element was removed successfully.
+   * @param index the index at which the element is to be inserted
+   * @param element the element to add
+   */
+  override fun add(index: Int, element: T) {
+    super.add(index, element)
+    saveToPreferences()
+  }
+
+  /**
+   * Adds all elements in the specified collection to the list and saves the list to preferences.
+   *
+   * @param elements the collection containing elements to be added
+   * @return true if the list changed as a result of the call
+   */
+  override fun addAll(elements: Collection<T>): Boolean {
+    val result = super.addAll(elements)
+    saveToPreferences()
+    return result
+  }
+
+  /**
+   * Adds all elements in the specified collection at the specified position in the list and saves
+   * the list to preferences.
+   *
+   * @param index the index at which to insert the first element from the specified collection
+   * @param elements the collection containing elements to be added
+   * @return true if the list changed as a result of the call
+   */
+  override fun addAll(index: Int, elements: Collection<T>): Boolean {
+    val result = super.addAll(index, elements)
+    saveToPreferences()
+    return result
+  }
+
+  /**
+   * Replaces the element at the specified position in the list with the specified element and saves
+   * the list to preferences.
+   *
+   * @param index the index of the element to replace
+   * @param element the element to be stored at the specified position
+   * @return the element previously at the specified position
+   */
+  override fun set(index: Int, element: T): T {
+    val result = super.set(index, element)
+    saveToPreferences()
+    return result
+  }
+
+  /**
+   * Removes the first occurrence of the specified element from the list and saves the list to
+   * preferences.
+   *
+   * @param element the element to be removed from the list, if present
+   * @return true if the list contained the specified element
    */
   override fun remove(element: T): Boolean {
     val result = super.remove(element)
@@ -56,14 +108,52 @@ class PersistentArrayList<T : Serializable>(private val key: String) : ArrayList
   }
 
   /**
-   * Only kept for compatibility with the [ArrayList] class and automatic cleanup. Use the reset
-   * function if you want to clear the preferences.
+   * Removes the element at the specified position in the list and saves the list to preferences.
+   *
+   * @param index the index of the element to be removed
+   * @return the element that was removed from the list
+   */
+  override fun removeAt(index: Int): T {
+    val result = super.removeAt(index)
+    saveToPreferences()
+    return result
+  }
+
+  /**
+   * Removes all elements in the specified collection from the list and saves the list to
+   * preferences.
+   *
+   * @param elements the collection containing elements to be removed from the list
+   * @return true if the list changed as a result of the call
+   */
+  override fun removeAll(elements: Collection<T>): Boolean {
+    val result = super.removeAll(elements.toSet())
+    saveToPreferences()
+    return result
+  }
+
+  /**
+   * Retains only the elements in the list that are contained in the specified collection and saves
+   * the list to preferences.
+   *
+   * @param elements the collection containing elements to be retained in the list
+   * @return true if the list changed as a result of the call
+   */
+  override fun retainAll(elements: Collection<T>): Boolean {
+    val result = super.retainAll(elements.toSet())
+    saveToPreferences()
+    return result
+  }
+
+  /**
+   * Clears the list. This method is only kept for compatibility with [ArrayList] and automatic
+   * cleanup. Use [reset] to clear the list and remove it from preferences.
    */
   override fun clear() {
     super.clear()
   }
 
-  /** Removes all the elements from this list as well as from Preferences. */
+  /** Clears the list and removes it from preferences. */
   fun reset() {
     clear()
     prefs.remove(key)
