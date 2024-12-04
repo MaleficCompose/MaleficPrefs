@@ -1,16 +1,21 @@
 package xyz.malefic.prefs.delegate
 
+import java.util.prefs.Preferences
 import kotlin.reflect.KProperty
-import xyz.malefic.prefs.Common.Companion.prefs
+import xyz.malefic.prefs.Common
 
 /**
- * A class that represents a boolean preference.
+ * A class that provides a delegate for storing and retrieving boolean preferences.
  *
  * @property key The key for the preference.
  * @property defaultValue The default value for the preference.
+ * @property prefs The Preferences instance used to store the preference.
  */
-class BooleanPreference(private val key: String, private val defaultValue: Boolean = false) :
-  PreferenceDelegate<Boolean> {
+class BooleanPreference(
+  private val key: String,
+  private val defaultValue: Boolean = false,
+  private val prefs: Preferences = Common.prefs,
+) : PreferenceDelegate<Boolean> {
   /**
    * Gets the boolean value of the preference.
    *

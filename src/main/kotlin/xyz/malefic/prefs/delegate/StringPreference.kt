@@ -1,16 +1,21 @@
 package xyz.malefic.prefs.delegate
 
+import java.util.prefs.Preferences
 import kotlin.reflect.KProperty
-import xyz.malefic.prefs.Common.Companion.prefs
+import xyz.malefic.prefs.Common
 
 /**
- * Delegate for string preferences.
+ * A class that provides a delegate for storing and retrieving string preferences.
  *
  * @property key The key for the preference.
- * @property defaultValue The default value for the preference if not set.
+ * @property defaultValue The default value for the preference.
+ * @property prefs The Preferences instance used to store the preference.
  */
-class StringPreference(private val key: String, private val defaultValue: String = "") :
-  PreferenceDelegate<String> {
+class StringPreference(
+  private val key: String,
+  private val defaultValue: String = "",
+  private val prefs: Preferences = Common.prefs,
+) : PreferenceDelegate<String> {
   /**
    * Gets the value of the preference.
    *

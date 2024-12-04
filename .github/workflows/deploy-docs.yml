@@ -34,12 +34,9 @@ jobs:
         run: |
           ./gradlew dokkaHtml
 
-      - name: Add CNAME File
-        run: |
-          echo "maleficprefs.malefic.xyz" > build/dokka/CNAME
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build/dokka
+          cname: maleficprefs.malefic.xyz

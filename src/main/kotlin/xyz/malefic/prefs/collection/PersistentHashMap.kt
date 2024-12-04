@@ -1,7 +1,8 @@
 package xyz.malefic.prefs.collection
 
 import java.io.Serializable
-import xyz.malefic.prefs.Common.Companion.prefs
+import java.util.prefs.Preferences
+import xyz.malefic.prefs.Common
 import xyz.malefic.serialize.SerializationUtil.deserialize
 import xyz.malefic.serialize.SerializationUtil.serialize
 
@@ -11,9 +12,12 @@ import xyz.malefic.serialize.SerializationUtil.serialize
  * @param K the type of keys maintained by this map, which must be Serializable
  * @param V the type of mapped values, which must be Serializable
  * @param key the key used to store the map in preferences
+ * @param prefs the preferences instance used to store the map
  */
-class PersistentHashMap<K : Serializable, V : Serializable>(private val key: String) :
-  HashMap<K, V>() {
+class PersistentHashMap<K : Serializable, V : Serializable>(
+  private val key: String,
+  private val prefs: Preferences = Common.prefs,
+) : HashMap<K, V>() {
   init {
     loadFromPreferences()
   }

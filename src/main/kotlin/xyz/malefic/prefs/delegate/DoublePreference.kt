@@ -1,16 +1,21 @@
 package xyz.malefic.prefs.delegate
 
+import java.util.prefs.Preferences
 import kotlin.reflect.KProperty
-import xyz.malefic.prefs.Common.Companion.prefs
+import xyz.malefic.prefs.Common
 
 /**
  * A class that provides a delegate for storing and retrieving double preferences.
  *
  * @property key The key for the preference.
  * @property defaultValue The default value for the preference.
+ * @property prefs The Preferences instance used to store the preference.
  */
-class DoublePreference(private val key: String, private val defaultValue: Double = 0.0) :
-  PreferenceDelegate<Double> {
+class DoublePreference(
+  private val key: String,
+  private val defaultValue: Double = 0.0,
+  private val prefs: Preferences = Common.prefs,
+) : PreferenceDelegate<Double> {
   /**
    * Retrieves the double value from preferences.
    *

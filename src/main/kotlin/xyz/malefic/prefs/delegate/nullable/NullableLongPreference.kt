@@ -1,17 +1,22 @@
 package xyz.malefic.prefs.delegate.nullable
 
+import java.util.prefs.Preferences
 import kotlin.reflect.KProperty
-import xyz.malefic.prefs.Common.Companion.prefs
+import xyz.malefic.prefs.Common
 import xyz.malefic.prefs.delegate.PreferenceDelegate
 
 /**
- * A class that represents a nullable long preference.
+ * A class that provides a delegate for storing and retrieving nullable long preferences.
  *
  * @property key The key for the preference.
  * @property defaultValue The default value for the preference.
+ * @property prefs The Preferences instance used to store the preference.
  */
-class NullableLongPreference(private val key: String, private val defaultValue: Long? = null) :
-  PreferenceDelegate<Long?> {
+class NullableLongPreference(
+  private val key: String,
+  private val defaultValue: Long? = null,
+  private val prefs: Preferences = Common.prefs,
+) : PreferenceDelegate<Long?> {
   /**
    * Gets the nullable long value of the preference.
    *

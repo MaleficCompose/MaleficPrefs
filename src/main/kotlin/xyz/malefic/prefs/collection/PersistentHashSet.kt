@@ -1,7 +1,8 @@
 package xyz.malefic.prefs.collection
 
 import java.io.Serializable
-import xyz.malefic.prefs.Common.Companion.prefs
+import java.util.prefs.Preferences
+import xyz.malefic.prefs.Common
 import xyz.malefic.serialize.SerializationUtil.deserialize
 import xyz.malefic.serialize.SerializationUtil.serialize
 
@@ -10,8 +11,12 @@ import xyz.malefic.serialize.SerializationUtil.serialize
  *
  * @param T the type of elements in this set, which must be Serializable
  * @param key the key used to store the set in preferences
+ * @param prefs the Preferences instance used to store the set
  */
-class PersistentHashSet<T : Serializable>(private val key: String) : HashSet<T>() {
+class PersistentHashSet<T : Serializable>(
+  private val key: String,
+  private val prefs: Preferences = Common.prefs,
+) : HashSet<T>() {
   init {
     loadFromPreferences()
   }

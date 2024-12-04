@@ -1,21 +1,23 @@
 package xyz.malefic.prefs.delegate
 
 import java.io.Serializable
+import java.util.prefs.Preferences
 import kotlin.reflect.KProperty
-import xyz.malefic.prefs.Common.Companion.prefs
+import xyz.malefic.prefs.Common
 import xyz.malefic.serialize.SerializationUtil.deserialize
 import xyz.malefic.serialize.SerializationUtil.serialize
 
 /**
- * A class that provides a delegate for storing and retrieving serializable preferences.
+ * A class that provides a delegate for storing and retrieving generic serializable preferences.
  *
- * @param T The type of the serializable object.
  * @property key The key for the preference.
  * @property defaultValue The default value for the preference.
+ * @property prefs The Preferences instance used to store the preference.
  */
 class SerializablePreference<T : Serializable>(
   private val key: String,
   private val defaultValue: T,
+  private val prefs: Preferences = Common.prefs,
 ) : PreferenceDelegate<T> {
   /**
    * Retrieves the serialized value from preferences.

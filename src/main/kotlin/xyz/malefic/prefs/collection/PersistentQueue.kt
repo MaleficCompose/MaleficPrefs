@@ -3,7 +3,8 @@ package xyz.malefic.prefs.collection
 import java.io.Serializable
 import java.util.LinkedList
 import java.util.Queue
-import xyz.malefic.prefs.Common.Companion.prefs
+import java.util.prefs.Preferences
+import xyz.malefic.prefs.Common
 import xyz.malefic.serialize.SerializationUtil.deserialize
 import xyz.malefic.serialize.SerializationUtil.serialize
 
@@ -12,8 +13,12 @@ import xyz.malefic.serialize.SerializationUtil.serialize
  *
  * @param T the type of elements in this queue, which must be Serializable
  * @param key the key used to store the queue in preferences
+ * @param prefs the Preferences instance used to store the queue
  */
-class PersistentQueue<T : Serializable>(private val key: String) : LinkedList<T>(), Queue<T> {
+class PersistentQueue<T : Serializable>(
+  private val key: String,
+  private val prefs: Preferences = Common.prefs,
+) : LinkedList<T>(), Queue<T> {
   init {
     loadFromPreferences()
   }

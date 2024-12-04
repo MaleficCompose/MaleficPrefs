@@ -1,17 +1,20 @@
 package xyz.malefic.prefs.delegate
 
+import java.util.prefs.Preferences
 import kotlin.reflect.KProperty
-import xyz.malefic.prefs.Common.Companion.prefs
+import xyz.malefic.prefs.Common
 
 /**
  * A class that provides a delegate for storing and retrieving byte array preferences.
  *
  * @property key The key for the preference.
  * @property defaultValue The default value for the preference.
+ * @property prefs The Preferences instance used to store the preference.
  */
 class ByteArrayPreference(
   private val key: String,
   private val defaultValue: ByteArray = ByteArray(0),
+  private val prefs: Preferences = Common.prefs,
 ) : PreferenceDelegate<ByteArray> {
 
   /**

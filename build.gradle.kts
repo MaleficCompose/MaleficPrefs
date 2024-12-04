@@ -1,16 +1,16 @@
 import cn.lalaki.pub.BaseCentralPortalPlusExtension.PublishingType
 
-val v = "1.2.2"
+val v = "1.2.3"
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
   kotlin("jvm")
   id("org.jetbrains.compose")
   id("org.jetbrains.kotlin.plugin.compose")
-  id("maven-publish")
   alias(libs.plugins.spotless)
   alias(libs.plugins.central)
   alias(libs.plugins.dokka)
+  `maven-publish`
   signing
 }
 
@@ -100,7 +100,7 @@ centralPortalPlus {
 }
 
 tasks.dokkaHtml {
-  outputDirectory.set(layout.buildDirectory.get().asFile.resolve("dokka"))
+  outputDirectory.set(layout.buildDirectory.dir("dokka"))
 }
 
 tasks.test {
