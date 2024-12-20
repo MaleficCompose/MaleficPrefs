@@ -2,7 +2,7 @@
 
 # MaleficPrefs
 
-![Maven Central Version](https://img.shields.io/maven-central/v/xyz.malefic/maleficprefs)
+![Maven Central Version](https://img.shields.io/maven-central/v/xyz.malefic.compose/prefs)
 
 > A Compose Desktop library for managing preferences and settings based on Java's Preferences API
 
@@ -13,9 +13,9 @@
 
 ## ⌨️ Usage
 
-1. Get the artifact from the [central repo](https://central.sonatype.com/artifact/xyz.malefic/maleficprefs)
-2. Use either the Property Delegate classes from `xyz.malefic.prefs.delegate` package or the Persistent Collection types from `xyz.malefic.prefs.collection`
-3. Read the [documentation](https://maleficprefs.malefic.xyz) for more details
+1. Get the artifact from the [central repo](https://central.sonatype.com/artifact/xyz.malefic.compose/prefs)
+2. Use either the Property Delegate classes from `xyz.malefic.compose.prefs.delegate` package or the Persistent Collection types from `xyz.malefic.compose.prefs.collection`
+3. Read the [documentation](https://prefs.compose.malefic.xyz) for more details
 
 
 ## 🏗 Project Status

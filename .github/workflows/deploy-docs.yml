@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
+  deploy-docs:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,4 +39,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build/dokka
-          cname: maleficprefs.malefic.xyz
+          cname: prefs.compose.malefic.xyz
