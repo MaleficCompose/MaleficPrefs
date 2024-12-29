@@ -12,7 +12,7 @@ val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 plugins {
     alias(libs.plugins.compose.kotlin)
     alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.spotless)
+    alias(libs.plugins.kotlinter)
     alias(libs.plugins.compose)
     alias(libs.plugins.central)
     alias(libs.plugins.dokka)
@@ -32,16 +32,6 @@ repositories {
 dependencies {
     implementation(compose.desktop.common)
     testImplementation(kotlin("test"))
-}
-
-spotless {
-    kotlin {
-        ktlint().customRuleSets(
-            listOf(
-                "io.nlopez.compose.rules:ktlint:0.4.16",
-            ),
-        )
-    }
 }
 
 java {
@@ -110,8 +100,15 @@ centralPortalPlus {
 }
 
 tasks.apply {
+    create("formatAndLintKotlin") {
+        group = "formatting"
+        description = "Fix Kotlin code style deviations with kotlinter"
+        dependsOn(formatKotlin)
+        dependsOn(lintKotlin)
+    }
     build {
         dependsOn(dokkaGenerate)
+        dependsOn(named("formatAndLintKotlin"))
     }
 }
 
