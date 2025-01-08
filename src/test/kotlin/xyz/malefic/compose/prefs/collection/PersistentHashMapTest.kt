@@ -1,6 +1,6 @@
 package xyz.malefic.compose.prefs.collection
 
-import xyz.malefic.compose.prefs.Common.Companion.prefs
+import xyz.malefic.compose.prefs.Common.prefs
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

@@ -4,16 +4,14 @@ val user = "MaleficCompose"
 val repo = "MaleficPrefs"
 val g = "xyz.malefic.compose"
 val artifact = "prefs"
-val v = "1.3.0"
-val desc = "A Compose Desktop library for managing preferences and settings based on Java's Preferences API"
+val v = "1.3.1"
+val desc = "A library for managing preferences and settings based on Java's Preferences API"
 
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
-    alias(libs.plugins.compose.kotlin)
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlinter)
-    alias(libs.plugins.compose)
     alias(libs.plugins.central)
     alias(libs.plugins.dokka)
     `maven-publish`
@@ -25,12 +23,9 @@ version = v
 
 repositories {
     mavenCentral()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-    google()
 }
 
 dependencies {
-    implementation(compose.desktop.common)
     testImplementation(kotlin("test"))
 }
 
