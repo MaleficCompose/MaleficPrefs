@@ -103,10 +103,8 @@ $dokka.location:xyz.malefic.compose.prefs.delegate/StringPreference/StringPrefer
 $dokka.location:xyz.malefic.compose.prefs.delegate/StringPreference/getValue/#kotlin.Any?#kotlin.reflect.KProperty[*]/PointingToDeclaration/-malefic-prefs/xyz.malefic.compose.prefs.delegate/-string-preference/get-value.html
 $dokka.location:xyz.malefic.compose.prefs.delegate/StringPreference/setValue/#kotlin.Any?#kotlin.reflect.KProperty[*]#kotlin.String/PointingToDeclaration/-malefic-prefs/xyz.malefic.compose.prefs.delegate/-string-preference/set-value.html
 $dokka.location:xyz.malefic.compose.prefs////PointingToDeclaration/-malefic-prefs/xyz.malefic.compose.prefs/index.html
-$dokka.location:xyz.malefic.compose.prefs/Common.Companion///PointingToDeclaration/-malefic-prefs/xyz.malefic.compose.prefs/-common/-companion/index.html
-$dokka.location:xyz.malefic.compose.prefs/Common.Companion/prefs/#/PointingToDeclaration/-malefic-prefs/xyz.malefic.compose.prefs/-common/-companion/prefs.html
 $dokka.location:xyz.malefic.compose.prefs/Common///PointingToDeclaration/-malefic-prefs/xyz.malefic.compose.prefs/-common/index.html
-$dokka.location:xyz.malefic.compose.prefs/Common/Common/#/PointingToDeclaration/-malefic-prefs/xyz.malefic.compose.prefs/-common/-common.html
+$dokka.location:xyz.malefic.compose.prefs/Common/prefs/#/PointingToDeclaration/-malefic-prefs/xyz.malefic.compose.prefs/-common/prefs.html
 $dokka.location:xyz.malefic.compose.serialize////PointingToDeclaration/-malefic-prefs/xyz.malefic.compose.serialize/index.html
 $dokka.location:xyz.malefic.compose.serialize/SerializationUtil///PointingToDeclaration/-malefic-prefs/xyz.malefic.compose.serialize/-serialization-util/index.html
 $dokka.location:xyz.malefic.compose.serialize/SerializationUtil/deserialize/#kotlin.ByteArray#java.lang.Class[TypeParam(bounds=[java.io.Serializable])]/PointingToDeclaration/-malefic-prefs/xyz.malefic.compose.serialize/-serialization-util/deserialize.html

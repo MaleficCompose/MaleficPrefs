@@ -46,7 +46,7 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-1.3.0        </div>
+1.3.1        </div>
         <div class="navigation-controls">
         <div class="filter-section filter-section_loading" id="filter-section">
                 <button class="platform-tag platform-selector jvm-like" data-active=""
@@ -108,43 +108,24 @@
   <div class="breadcrumbs"><a href="../../../index.html">MaleficPrefs</a><span class="delimiter">/</span><a href="../index.html">xyz.malefic.compose.prefs</a><span class="delimiter">/</span><span class="current">Common</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Common</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Common</a></div><p class="paragraph">A common class for managing preferences.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">Common</a></div><p class="paragraph">Singleton object for managing preferences.</p><p class="paragraph">This object holds shared resources or utilities for managing user-specific preference data. It provides a centralized place for static-like members, allowing them to be accessed globally without needing an instance.</p><p class="paragraph">The <code class="lang-kotlin">Common</code> object is particularly useful for defining constants, utility functions, or shared instances like <code class="lang-kotlin">prefs</code>, which can be accessed directly via <code class="lang-kotlin">Common.prefs</code>.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
-      <div data-togglable="CONSTRUCTOR">
-        <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="954562457%2FConstructors%2F-251573632" anchor-label="Common" id="954562457%2FConstructors%2F-251573632" data-filterable-set=":/main"></a>
-          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":/main" data-filterable-set=":/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="-common.html"><span><span>Common</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="954562457%2FConstructors%2F-251573632"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-togglable="TYPE">
-        <h2 class="">Types</h2>
-        <div class="table"><a data-name="2109725725%2FClasslikes%2F-251573632" anchor-label="Companion" id="2109725725%2FClasslikes%2F-251573632" data-filterable-set=":/main"></a>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1329611430%2FProperties%2F-251573632" anchor-label="prefs" id="1329611430%2FProperties%2F-251573632" data-filterable-set=":/main"></a>
           <div class="table-row" data-filterable-current=":/main" data-filterable-set=":/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2109725725%2FClasslikes%2F-251573632"></span>
+                  <div><a href="prefs.html"><span><span>prefs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1329611430%2FProperties%2F-251573632"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="prefs.html">prefs</a><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.prefs/java/util/prefs/Preferences.html">Preferences</a></div><div class="brief "><p class="paragraph">A <code class="lang-kotlin">Preferences</code> instance that is initialized to the user root node with the class name as the node name.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -156,7 +137,7 @@
 </div>
     <div class="footer">
         <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2024 Copyright</span>
+        <span>© 2025 Copyright</span>
         <span class="pull-right">
             <span>Generated by </span>
             <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
