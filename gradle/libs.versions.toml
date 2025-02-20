@@ -1,7 +1,7 @@
 [versions]
 central = "1.2.8"
 dokka = "2.0.0"
-compose = "1.8.0-dev1920"
+compose = "1.8.0-alpha03"
 kotlin = "2.1.10"
 kotlinter = "5.0.1"
 
