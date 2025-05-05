@@ -1,0 +1,396 @@
+:toc: macro
+:toc-title: Table of Contents
+:toclevels: 3
+:icons: font
+:source-highlighter: highlightjs
+
+image::cover.jpeg[MaleficPrefs]
+
+image:https://img.shields.io/maven-central/v/xyz.malefic.compose/prefs[Maven Central Version]
+
+> A Compose Desktop library for managing preferences and settings based on Java's Preferences API
+
+toc::[]
+
+== Introduction
+
+MaleficPrefs is a library that provides a convenient way to store and retrieve preferences in Compose Desktop applications. It's built on top of Java's Preferences API and offers two main features:
+
+1. *Property Delegates*: Type-safe property delegates for storing primitive types and serializable objects
+2. *Persistent Collections*: Collections that automatically persist their state to preferences
+
+== Prerequisites
+
+* Java 17 or above
+* Kotlin 2.1.0
+
+== Installation
+
+=== Gradle (Kotlin DSL)
+
+[source,kotlin]
+----
+dependencies {
+    implementation("xyz.malefic.compose:prefs:1.3.1")
+}
+----
+
+=== Gradle (Groovy DSL)
+
+[source,groovy]
+----
+dependencies {
+    implementation 'xyz.malefic.compose:prefs:1.3.1'
+}
+----
+
+=== Maven
+
+[source,xml]
+----
+<dependency>
+    <groupId>xyz.malefic.compose</groupId>
+    <artifactId>prefs</artifactId>
+    <version>1.3.1</version>
+</dependency>
+----
+
+== Usage
+
+=== Property Delegates
+
+MaleficPrefs provides property delegates for various types. These delegates automatically handle the storage and retrieval of values from preferences.
+
+==== Basic Types
+
+===== Boolean Preference
+
+[source,kotlin]
+----
+// Define a boolean preference with a key and default value
+var darkMode by BooleanPreference("darkMode", defaultValue = false)
+
+// Use it like a regular property
+darkMode = true
+println(darkMode) // true
+----
+
+===== Int Preference
+
+[source,kotlin]
+----
+// Define an integer preference with a key and default value
+var counter by IntPreference("counter", defaultValue = 0)
+
+// Use it like a regular property
+counter = 42
+println(counter) // 42
+----
+
+===== String Preference
+
+[source,kotlin]
+----
+// Define a string preference with a key and default value
+var username by StringPreference("username", defaultValue = "")
+
+// Use it like a regular property
+username = "JohnDoe"
+println(username) // JohnDoe
+----
+
+===== Double Preference
+
+[source,kotlin]
+----
+// Define a double preference with a key and default value
+var price by DoublePreference("price", defaultValue = 0.0)
+
+// Use it like a regular property
+price = 99.99
+println(price) // 99.99
+----
+
+===== Float Preference
+
+[source,kotlin]
+----
+// Define a float preference with a key and default value
+var rating by FloatPreference("rating", defaultValue = 0.0f)
+
+// Use it like a regular property
+rating = 4.5f
+println(rating) // 4.5
+----
+
+===== Long Preference
+
+[source,kotlin]
+----
+// Define a long preference with a key and default value
+var timestamp by LongPreference("timestamp", defaultValue = 0L)
+
+// Use it like a regular property
+timestamp = System.currentTimeMillis()
+println(timestamp)
+----
+
+===== ByteArray Preference
+
+[source,kotlin]
+----
+// Define a byte array preference with a key and default value
+var data by ByteArrayPreference("data", defaultValue = byteArrayOf())
+
+// Use it like a regular property
+data = byteArrayOf(1, 2, 3)
+println(data.contentToString()) // [1, 2, 3]
+----
+
+===== Serializable Preference
+
+[source,kotlin]
+----
+// Define a data class that implements Serializable
+data class User(val name: String, val age: Int) : Serializable
+
+// Define a serializable preference with a key and default value
+var currentUser by SerializablePreference("currentUser", User("Guest", 0))
+
+// Use it like a regular property
+currentUser = User("John", 30)
+println(currentUser) // User(name=John, age=30)
+----
+
+==== Nullable Types
+
+MaleficPrefs also provides nullable variants of the property delegates. These delegates allow you to store null values, which will be replaced with the default value when retrieved.
+
+===== Nullable Int Preference
+
+[source,kotlin]
+----
+// Define a nullable integer preference with a key and default value
+var nullableCounter by NullableIntPreference("nullableCounter", defaultValue = 0)
+
+// Use it like a regular property
+nullableCounter = 42
+println(nullableCounter) // 42
+
+// Assign null to use the default value
+nullableCounter = null
+println(nullableCounter) // 0 (default value)
+----
+
+===== Nullable String Preference
+
+[source,kotlin]
+----
+// Define a nullable string preference with a key and default value
+var nullableUsername by NullableStringPreference("nullableUsername", defaultValue = "Guest")
+
+// Use it like a regular property
+nullableUsername = "JohnDoe"
+println(nullableUsername) // JohnDoe
+
+// Assign null to use the default value
+nullableUsername = null
+println(nullableUsername) // Guest (default value)
+----
+
+===== Nullable Double Preference
+
+[source,kotlin]
+----
+// Define a nullable double preference with a key and default value
+var nullablePrice by NullableDoublePreference("nullablePrice", defaultValue = 0.0)
+
+// Use it like a regular property
+nullablePrice = 99.99
+println(nullablePrice) // 99.99
+
+// Assign null to use the default value
+nullablePrice = null
+println(nullablePrice) // 0.0 (default value)
+----
+
+===== Nullable Float Preference
+
+[source,kotlin]
+----
+// Define a nullable float preference with a key and default value
+var nullableRating by NullableFloatPreference("nullableRating", defaultValue = 0.0f)
+
+// Use it like a regular property
+nullableRating = 4.5f
+println(nullableRating) // 4.5
+
+// Assign null to use the default value
+nullableRating = null
+println(nullableRating) // 0.0 (default value)
+----
+
+===== Nullable Long Preference
+
+[source,kotlin]
+----
+// Define a nullable long preference with a key and default value
+var nullableTimestamp by NullableLongPreference("nullableTimestamp", defaultValue = 0L)
+
+// Use it like a regular property
+nullableTimestamp = System.currentTimeMillis()
+println(nullableTimestamp)
+
+// Assign null to use the default value
+nullableTimestamp = null
+println(nullableTimestamp) // 0 (default value)
+----
+
+===== Nullable ByteArray Preference
+
+[source,kotlin]
+----
+// Define a nullable byte array preference with a key and default value
+var nullableData by NullableByteArrayPreference("nullableData", defaultValue = byteArrayOf())
+
+// Use it like a regular property
+nullableData = byteArrayOf(1, 2, 3)
+println(nullableData.contentToString()) // [1, 2, 3]
+
+// Assign null to use the default value
+nullableData = null
+println(nullableData.contentToString()) // [] (default value)
+----
+
+=== Persistent Collections
+
+MaleficPrefs provides persistent collections that automatically save their state to preferences. These collections implement the standard Java collection interfaces, so you can use them just like regular collections.
+
+==== PersistentArrayList
+
+[source,kotlin]
+----
+// Create a persistent ArrayList with a key
+val todoList = PersistentArrayList<String>("todoList")
+
+// Add items
+todoList.add("Buy groceries")
+todoList.add("Clean the house")
+
+// Remove items
+todoList.remove("Buy groceries")
+
+// Reset the list
+todoList.reset()
+
+// The list state is automatically persisted
+// When you create a new instance with the same key, it will load the saved state
+val loadedList = PersistentArrayList<String>("todoList")
+println(loadedList) // []
+----
+
+==== PersistentHashMap
+
+[source,kotlin]
+----
+// Create a persistent HashMap with a key
+val userSettings = PersistentHashMap<String, String>("userSettings")
+
+// Add entries
+userSettings["theme"] = "dark"
+userSettings["language"] = "en"
+
+// Remove entries
+userSettings.remove("theme")
+
+// Add multiple entries
+userSettings.putAll(mapOf("fontSize" to "14", "fontFamily" to "Arial"))
+
+// Reset the map
+userSettings.reset()
+
+// The map state is automatically persisted
+// When you create a new instance with the same key, it will load the saved state
+val loadedSettings = PersistentHashMap<String, String>("userSettings")
+println(loadedSettings) // {}
+----
+
+==== PersistentHashSet
+
+[source,kotlin]
+----
+// Create a persistent HashSet with a key
+val enabledFeatures = PersistentHashSet<String>("enabledFeatures")
+
+// Add items
+enabledFeatures.add("darkMode")
+enabledFeatures.add("notifications")
+
+// Remove items
+enabledFeatures.remove("darkMode")
+
+// Reset the set
+enabledFeatures.reset()
+
+// The set state is automatically persisted
+// When you create a new instance with the same key, it will load the saved state
+val loadedFeatures = PersistentHashSet<String>("enabledFeatures")
+println(loadedFeatures) // []
+----
+
+==== PersistentQueue
+
+[source,kotlin]
+----
+// Create a persistent Queue with a key
+val messageQueue = PersistentQueue<String>("messageQueue")
+
+// Add items
+messageQueue.add("Message 1")
+messageQueue.add("Message 2")
+
+// Remove items
+val message = messageQueue.poll() // "Message 1"
+
+// Reset the queue
+messageQueue.reset()
+
+// The queue state is automatically persisted
+// When you create a new instance with the same key, it will load the saved state
+val loadedQueue = PersistentQueue<String>("messageQueue")
+println(loadedQueue) // []
+----
+
+== Project Status
+
+The project is currently under active development. Feel free to contribute or report issues.
+
+== Author
+
+*Om Gupta*
+
+* Email: om@malefic.xyz
+
+Feel free to reach out 【ツ】
+
+== Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
+contributions you make are *greatly appreciated*.
+
+1. Open an issue first to discuss what you would like to change.
+2. Fork the Project
+3. Create your feature branch (`git checkout -b feature/amazing-feature`)
+4. Commit your changes (`git commit -m 'Add some amazing feature'`)
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a pull request
+
+Please make sure to update tests as appropriate.
+
+== Show your support
+
+Give a ⭐️ if this project helped you!
+
+== License
+
+This project is licensed under the MIT License - see the link:LICENSE[LICENSE] file for details.
